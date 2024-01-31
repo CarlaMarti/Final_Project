@@ -27,9 +27,9 @@
 
 [1. Executive summary](#section1)
 
-[2.   Importing libraries and reading data](#section2)
+[2.   Installing versions of libraries](#section2)
 
-[3.   Previous step](#section3)
+[3.   Reading dataset](#section3)
 
 [4.   Data cleaning](#section4)
 
@@ -88,5 +88,10 @@ Las variables son las siguientes:
 <div style="border-top: 4px solid black;"></div>
 
 <a id="section2"></a>
-# 2. Importing libraries and Data reading
+# 2. Installing versions of libraries
+<div style="border-top: 2px solid black;"></div>
+<br>
+En primer lugar, use el siguiente comando para instalar las mismas versiones de las diferentes librerías que he usado a lo largo del proyecto.<br><br>
+
+    pip install -r requirements.txt
 

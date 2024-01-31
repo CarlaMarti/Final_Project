@@ -6,6 +6,3 @@ coverage == 7.4.0
 pylint==3.0.3
 flake8==7.0.0
 black==23.12.1
-
-# To install all the libraries requirements version:
-# pip install -r requirements.txt
