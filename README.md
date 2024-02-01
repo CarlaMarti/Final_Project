@@ -106,6 +106,9 @@ En primer lugar, use el siguiente comando para instalar las mismas versiones de 
 
 # 3. Reading the data 
 
+<div style="border-top: 2px solid black;"></div>
+
+
 [GO UP](#section0)
 
 Con el siguiente comando puede leer el dataset:
@@ -113,3 +116,18 @@ Con el siguiente comando puede leer el dataset:
     python scripts/read_Data.py -r
 
 Con el siguiente
+
+<a id="section3"></a>
+
+# 4. Understanding the data 
+
+<div style="border-top: 2px solid black;"></div>
+
+
+[GO UP](#section0)
+
+
+Con el siguiente comando, se van a mostrar algunas características del dataset.
+
+    python scripts/read_Data.py -u
+
