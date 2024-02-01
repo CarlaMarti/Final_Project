@@ -158,7 +158,11 @@ H. Repeated usernames
 
 ### A. Irrellevant variables/columns
 
-El creador del dataset avisa que las dos últimas columnas son un error y es recomendable eliminarlas antes de empezar cualquier proyecto. Con el siguiente comando podrás eliminarlas
+El creador del dataset avisa que las dos últimas columnas son un error y es recomendable eliminarlas antes de empezar cualquier proyecto. 
+
+**Atención!** En caso de realizar el comando 2 veces, se perderá información relevante para el análisis. 
+
+Con el siguiente comando podrás eliminarlas:
 
     python scripts/cleaning_data.py -ir
 
@@ -178,4 +182,23 @@ Mediante un script llamado outliers, dentro del directorio cleaning, se siguen l
 
     python scripts/cleaning_data.py -out
 
+### C. Mistaken data
+
+Alguna variable toma valores sin sentido:
+
+La variable **Dependent_count** representa el número de personas que dependen económicamente del usuario. Por tanto, no tiene sentido que haya usuarios con -1 personas dependientes. En conclusión, esa data está mal y vamos a eliminarla. Para no perder la información de todas esas columnas vamos a asignar un valor nulo, que posteriormente ya veremos cómo tratar.
+
+    python scripts/cleaning_data.py -md
+
+<div style="border-top: 2px solid black;"></div>
+
+### D. Null Values
+
+Con el siguiente comando, observará el número de valores nulos para cada variable y se eliminarán de la siguiente forma:
+
+- los valores nulos en variables numéricas, se reemplazarán por el promedio de la variable numérica
+- los valores nulos en variables categóricas serán eliminados
+
+   
+        python scripts/cleaning_data.py -vn
 
