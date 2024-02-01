@@ -113,7 +113,7 @@ En primer lugar, use el siguiente comando para instalar las mismas versiones de 
 
 Con el siguiente comando puede leer el dataset:
 
-    python scripts/read_Data.py -r
+    python scripts/read_data.py -r
 
 Con el siguiente
 
@@ -130,4 +130,52 @@ Con el siguiente
 Con el siguiente comando, se van a mostrar algunas características del dataset.
 
     python scripts/read_Data.py -u
+
+<div style="border-top: 4px solid black;"></div>
+
+<a id="section4"></a>
+# 4. Data Cleaning
+
+[GO UP](#section0)
+
+A. Irrellevant variables/columns
+
+B. Dealing with outliers
+
+C. Mistaken data
+
+D. Null values
+
+E. Repeated categories
+
+F. Wrong data type
+
+G. Dealing with duplicates
+
+H. Repeated usernames
+
+<div style="border-top: 2px solid black;"></div>
+
+### A. Irrellevant variables/columns
+
+El creador del dataset avisa que las dos últimas columnas son un error y es recomendable eliminarlas antes de empezar cualquier proyecto. Con el siguiente comando podrás eliminarlas
+
+    python scripts/cleaning_data.py -ir
+
+<div style="border-top: 2px solid black;"></div>
+
+### B. Dealing with Outliers
+
+Mediante un script llamado outliers, dentro del directorio cleaning, se siguen los siguientes pasos:
+
+- Se detectan outliers (he decidido ser muy flexible a la hora de determinar cuál era la distancia para que se considerara outlier para no perder mucha información válida).
+
+- Se generará un gráfico de la dispersión para cada una de las variables con outliers, dentro de una carpeta "before", dentro de la carpeta "outliers" que se crearán en caso de no existir
+
+- Se eliminan los outliers
+
+- Se generará otro gráfico para cada una de las mismas variables, pero esta vez sin outliers.
+
+    python scripts/cleaning_data.py -out
+
 
