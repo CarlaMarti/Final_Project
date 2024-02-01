@@ -33,7 +33,9 @@ def outliersfunction(out):
                     sns.boxplot(x=df[~df.index.isin(outliers.index)][column]).set_title(f'After Cleaning - {column}')
                     plt.savefig(f'outliers/after/{column}_after.png')
                     plt.clf()
-
+        
+        df.to_csv("Dataset.csv", index=False)
+        
         print("Outliers detection and removal completed. Images saved in 'outliers' folder.")
     else:
         print("No action taken. Please use '-out' flag to detect and remove outliers.")
