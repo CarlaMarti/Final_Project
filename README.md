@@ -31,9 +31,13 @@
 
 [3.   Reading dataset](#section3)
 
-[4.   Data cleaning](#section4)
+[4.   Understanding the data](#section4)
 
-[5.   Exploring data](#section5)
+](#section4)
+
+[5.   Data cleaning 
+
+Exploring data](#section5)
 
 [6.   Feature engineering](#section6)
 
@@ -95,3 +99,17 @@ En primer lugar, use el siguiente comando para instalar las mismas versiones de 
 
     pip install -r requirements.txt
 
+
+<div style="border-top: 4px solid black;"></div>
+<a id="section3"></a>
+<br>
+
+# 3. Reading the data 
+
+[GO UP](#section0)
+
+Con el siguiente comando puede leer el dataset:
+
+    python scripts/read_Data.py -r
+
+Con el siguiente
