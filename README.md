@@ -148,11 +148,7 @@ D. Null values
 
 E. Repeated categories
 
-F. Wrong data type
-
-G. Dealing with duplicates
-
-H. Repeated usernames
+F. Dealing with duplicates and repeated usernames
 
 <div style="border-top: 2px solid black;"></div>
 
@@ -200,5 +196,25 @@ Con el siguiente comando, observará el número de valores nulos para cada varia
 - los valores nulos en variables categóricas serán eliminados
 
    
+
         python scripts/cleaning_data.py -vn
+
+<div style="border-top: 2px solid black;"></div>
+
+### E. Repeated Categories
+
+
+Hay algunos valores de variables que representan lo mismo. 
+
+Por ejemplo: F = f = female = Female 
+
+    python scripts/cleaning_data.py -rep
+
+<div style="border-top: 2px solid black;"></div>
+
+### F. Dealing with duplicates or repeated users
+
+Con el comando a continuación se identifica y cuenta las filas duplicadas en el conjunto de datos y en caso de haber usuarios repetidos.
+
+    python scripts/cleaning_data.py -dup
 
