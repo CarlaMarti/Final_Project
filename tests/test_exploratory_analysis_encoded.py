@@ -1,6 +1,7 @@
 import os
 import unittest
 
+
 class TestFunctions(unittest.TestCase):
     """
     Script to test the exploratory analysis encoded
@@ -11,11 +12,11 @@ class TestFunctions(unittest.TestCase):
         Test if plot_correlations function generates directory
         """
         self.assertTrue(os.path.exists("correlations"))
-    
+
     def test_plot_correlations_files(self):
         """
         Test if plot_correlations function generates files
-        """        
+        """
         files = os.listdir("correlations")
         self.assertTrue(len(files) > 0, "No files found in 'correlations' folder")
 

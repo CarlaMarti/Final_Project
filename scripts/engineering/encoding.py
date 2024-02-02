@@ -36,6 +36,6 @@ def encoding_categorical(df_to_engineer):
         print(df_encoded.sample(3))
         print("\n\n")
 
-    print(df_to_engineer[columns_to_encode].info())
+    print(df_to_engineer.columns)
 
     return df_to_engineer

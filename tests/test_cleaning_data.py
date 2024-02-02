@@ -78,12 +78,10 @@ class TestCleaningDataFunctions(unittest.TestCase):
         after_images_path = "outliers/after"
 
         if os.path.exists(before_images_path) and os.path.exists(after_images_path):
-                        
             print("Images downloaded successfully!")
         else:
             assert "No images found in 'outliers/before' folder"
             print("Folders do not exist. Skipping the test.")
-
 
     def test_repeated_values(self):
         """
