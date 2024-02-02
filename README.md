@@ -35,9 +35,9 @@
 
 [5.   Data cleaning](#section5)
 
-[6.   Exploring data](#section6)
+[6.   Exploratory Data Analysis - Feature engineering - Data Visualization](#section6)
 
-Feature engineering
+
 
 [7.   Exploratory Data Analysis - Data Visualization](#section7)
 
@@ -217,19 +217,11 @@ Por ejemplo: F = f = female = Female
 
 Con el comando a continuación se identifica y cuenta las filas duplicadas en el conjunto de datos y en caso de haber usuarios repetidos.
 
-    ython scripts/main.py -d FinalProject.csv -c -dup
+    python scripts/main.py -d FinalProject.csv -c -dup
 
 ### !  Testing the data cleaning
 
-Para testear la eliminación de valores nulos: 
-
-    pytest tests/test_nulos.py
-
-Para testear la limpieza del dataset
-
-    pytest tests/test_cleaning_data.py
-
-Para testear los usuarios repetidos
+Para testear las funciones de limpieza del dataset
 
     pytest tests/test_cleaning_data.py
 
