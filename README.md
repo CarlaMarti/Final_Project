@@ -41,9 +41,7 @@
 
 [8.   Exploratory Data Analysis Once Encoded](#section8)
 
-Predictive Model
-
-[9.   Communicating the findings](#section9)
+[9.   Predictive Model](#section9)
 
 [GO UP](#section0)
 
@@ -366,5 +364,62 @@ Las variables Total_Relationship_Count, Months_Inactive_12_mon, Contacts_Count_1
 ### B. Graphical representation
 <div style="border-top: 2px solid black;"></div>
 
+Para obtener una carpeta con las relaciones con Attrition_Flag use el siguiente comando:
 
+    python scripts/main.py -d FinalProject.csv -ee -g
+
+*Interpretación:*
+
+>***Interpretación 1:*** Unas características que pueden ser útiles para identificar a los perfiles que pueden abandonar el banco son: 1- Realizan pocas transacciones (50 o menos), 2- La cantidad total de dinero movido en transacciones es bajo. 
+
+>***Porcentajes relevantes:*** El 60,8% de los clientes que abandonan solamente hacen transacciones entre 500 y 2500 unidades monetarias. El 80,4% de los que abandnan han hecho menos de 4500 unidades monetarias. Solamente un 0,1% de los clientes que ha abandonado ha hecho más de 10500 unidades monetarias en transacciones. El 60,4% de clientes que abandonan han hecho entre 30 y 50 transacciones.El 93,1% de los que abandonan han hecho menos de 70 transacciones. En comparación, el 49% de los clientes existentes han hecho menos de 70 transacciones (un 44,1% menos, es decir, una gran diferencia).
+
+>***Interpretación 2:*** Los consumidores que no abandonan el banco tienen en media 4 productos, mientras que la media de los clientes que abandonaron es de 3. 
+He hechó gráficos con el % de abandonos y el % de no abandonos para cada cantidad de productos porque el gráfico con el recuento de clientes difícil de interpretar. Estos gráficos son mucho mas interpretables: hay un porcentaje mayor de abandonos en los clientes con 2, 1 y 3 productos en este orden en comparación con los porcentajes de los grupos 4, 5 y 6 productos.
+
+>***Porcentajes relevantes 2:*** En el grupo de clientes con 2 productos hay una tasa de abandono del 27,9%. Para el grupo de 1 producto, el 25,7% de clientes abandonaron. En cambio, en los grupos de clientes con 4, 5, 6 productos contratados, el % de abanono no llega al 12%. El grupo de 3 productos es un punto medio.
+
+>***Interpretación 3:*** El 51.7% de los clientes que han estado activos todos los meses del último año han abandonado los servicios. No obstante este no es un dato alarmante ya que no se trata de una muestra representativa (en la categoría 0 meses de inactividad hay muy pocos usuarios). 
+En cambio, en los grupos de 1, 2 y 3 meses si hay una muestra representativa en donde vemos una tendencia: a más meses de inactividad, mayor es la tasa de abandono, siendo la menor la de 1 mes de inactividad con menos de un 4.5% de abandonos, y la mayor la de 3 meses con un 21.5%. El banco debería entonces preocuparse por aquellos clientes que pasan más meses inactivos.
+
+
+>***Porcentajes relevantes:*** El 51,7% de los clientes que han estado activos todos los meses del último año han abandonado los servicios. A continuación, el 30% de los que han estado inactivos 4 meses han abandonado, el 21,45% de los que lo han estado 3 meses han abanonado. Cabe destacar también que menos del 4,5% de los clientes que solamente inactivos 1 meses han abandonado.
+
+
+>***Interpretación 4:*** Claramente cuantos más contactos se han hecho con el banco (seguramente, más quejas), más abandonos hay.
+
+>***Porcentajes relevantes:*** El 100% de los clientes que han contactado con el banco en el último año 6 veces han abandonado los servicios. De los clientes que han hecho 5 contactos han abandonado un 33,7% y la proporción disminuye a medida que bajan los contactos. De los clientes que no han hecho ningún contacto solamente han abandonado menos de un 1,8%.
+
+>***Interpretación 5:*** He analizado por encima la relación con CLIENTNUM porque en la tabla de correlaciones había uan pequeña correlación, pero al hacer los gráficos rapidamente he visto que no hay.
+
+>***Interpretación 6:*** Vemos que la distribución de abandonos tiende a tener saldos en la tarjeta de crédito bajos o nulos. Podemos decir que lo más frecuente es que las personas que cierran su contrato tienen un salgo entre -500 y 500. Todas las personas con un saldo inferior a -400 aproximadamente abandonan los servicios.
+
+>***Porcentajes relevantes:*** Personas que abandonan con saldo entre -500 y 500 del total de personas que abandonan: 60.9%. Personas que abandonan con saldo entre -500 y 500 entre total personas entre -500 y 500: 38.4%
+
+>***Interpretación 7:*** En la variable cambio de dinero en transacciones del trimestre 1 al 4, a mayoría de valores se mueven entre -0.25 y 1.25, no obstante, cuando hacemos el pairplot separando las categorías attrited y no, vemos que de 0.75 a 1 y de 0.75 a 0.5 la frecuencia de clientes Existentes disminuye en picado cuando la frecuencia de clientes attrited disminuye mucho menos (se mantiene más). Como tienen una forma normal aproximadamente, podemos decir que los valores de los clientes existentes están muy concentrados (varianza baja) cuando los clientes que han abandonado están más dispersos. Personas que abandonan con Total_Amt_Chng_Q4_Q1 entre 0 y 0.25 entre total personas en ese rango:  
+
+> ***Porcentajes importantes:*** Personas que abandonan con Total_Amt_Chng_Q4_Q1 entre 0 y 0.25 entre total personas en ese rango:  100.0 %
+Personas que abandonan con Total_Amt_Chng_Q4_Q1 entre 0.25 y 0.5 entre total personas en ese rango:  38.54907539118065 %
+Personas que abandonan con Total_Amt_Chng_Q4_Q1 entre 0.5 y 0.75 entre total personas en ese rango:  14.331688478867196 %
+Personas que abandonan con Total_Amt_Chng_Q4_Q1 entre 0.75 y 1 entre total personas en ese rango:  13.615529792396872 %
+Personas que abandonan con Total_Amt_Chng_Q4_Q1 entre 1 y 1.25 entre total personas en ese rango:  19.88555078683834 %
+
+>***Interpretación 8:*** Esta variable también sigue una distribución normal. La diferencia principal es que la media no es la misma: la media de los clientes que han abandonado es 0.55, y la de los que no han abandonado 0.74. Es decir, los clientes que abandonan tienden a tener un cambio del 1r al 4o trimestre en el número de transacciones tienden a ser más bajos.
+
+>***Porcentajes importantes:*** Personas que abandonan con Total_Ct_Chng_Q4_Q1 entre 0 y 0.25 entre total personas en ese rango:  73.57142857142858 %
+Personas que abandonan con Total_Ct_Chng_Q4_Q1 entre 0.25 y 0.5 entre total personas en ese rango:  46.85920577617328 %
+Personas que abandonan con Total_Ct_Chng_Q4_Q1 entre 0.5 y 0.75 entre total personas en ese rango:  12.386195214905781 %
+Personas que abandonan con Total_Ct_Chng_Q4_Q1 entre 0.75 y 1 entre total personas en ese rango:  7.656102918104802 %
+Personas que abandonan con Total_Ct_Chng_Q4_Q1 entre 1 y 1.25 entre total personas en ese rango:  7.6923076923076925 %
+
+>***Interpretación 9:*** Como podemos ver, hay dos modas para los clientes existentes (en 0% y en 60%), y una para los que abandonaron (0%). Observamos que el 65.7% de los clientes que abandonaron tenían una utilización media de entre el 0% y 10%, cuando para la misma utilización solamente hay un 34.8% de los clientes existentes.
+
+
+<div style="border-top: 4px solid black;"></div>
+<a id="section9"></a>
+# 8. Predictive Model
+
+[GO UP](#section0)
+
+<div style="border-top: 2px solid black;"></div>
 

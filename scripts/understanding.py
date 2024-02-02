@@ -22,7 +22,16 @@ def understandingdata(df):
             unique_values = df[column].unique()[:4]
             print(f"{column}: {unique_values}")
         print("\n\n\n\nSample of Data:")
-        print(df[['CLIENTNUM', 'Attrition_Flag', 'Customer_Age', 'Gender', 'Income_Category']].sample(5))  # Mostrar las primeras filas como una tabla sin índices
+        print(
+            df[
+                [
+                    "CLIENTNUM",
+                    "Attrition_Flag",
+                    "Customer_Age",
+                    "Gender",
+                    "Income_Category",
+                ]
+            ].sample(5)
+        )  # Mostrar las primeras filas como una tabla sin índices
     except FileNotFoundError:
         print("Dataset not found!")
-

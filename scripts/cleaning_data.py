@@ -23,7 +23,7 @@ def cleaning(df_to_clean, ir, out, md, vn, rep, dup):
         df_to_clean = deal_with_duplicates(df_to_clean)
     if False == (ir and out and md and vn and rep and dup):
         print("\n\n\nRemember that there are still things to clean!\n\n\n")
-    
+
     df = df_to_clean.copy()
 
     return df
