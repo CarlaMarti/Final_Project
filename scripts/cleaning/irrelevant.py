@@ -1,15 +1,16 @@
-import pandas as pd
-
-def delete_last_two_columns():
+def delete_last_two_columns(df_to_clean):
+    """
+    Deletes the two irrelevant columns
+    """
     try:
-        df = pd.read_csv("Dataset.csv")
-        print("\n\nColumnas antes:\n",list(df.columns),"\n\n\n")
-        df = df.iloc[:, :-2]
-        df.to_csv("Dataset.csv", index=False)
-        print("\n\nColumnas después:\n", list(df.columns))
-        print("\n\nSe eliminaron las dos últimas columnas exitosamente.")
+        print("\n\nColumnas antes:\n", list(df_to_clean.columns), "\n\n\n")
+        
+        if len(df_to_clean.columns) >= 2:
+            df_to_clean = df_to_clean.iloc[:, :-2]
+            print("\n\nColumnas después:\n", list(df_to_clean.columns))
+            print("\n\nSe eliminaron las dos últimas columnas exitosamente.\n\n")
+        else:
+            print("\n\nNo hay suficientes columnas para eliminar las dos últimas.\n\n")
     except Exception as e:
         print("Ocurrió un error:", e)
-
-if __name__ == "__main__":
-    delete_last_two_columns()
+    return df_to_clean

@@ -1,4 +1,3 @@
-import click
 from cleaning.irrelevant import delete_last_two_columns
 from cleaning.outliers import outliersfunction
 from cleaning.mistaken import mistakendata
@@ -6,27 +5,24 @@ from cleaning.nulos import eliminar_nulos
 from cleaning.repeated import repeated_values
 from cleaning.duplicates import deal_with_duplicates
 
-@click.command()
-@click.option('-out', is_flag=True, help='Detect and remove outliers from dataset')
-@click.option('-ir', is_flag=True, help='Delete last 2 columns from the dataset')
-@click.option('-md', is_flag=True, help='Delete mistaken data')
-@click.option('-vn', is_flag=True, help='Delete null values')
-@click.option('-rep', is_flag=True, help='Delete repeated values')
-@click.option('-dup', is_flag=True, help='Delete duplicated values or users')
 
-def cleaning(ir, out, md, vn, rep, dup):
+def cleaning(df_to_clean, ir, out, md, vn, rep, dup):
+    if False == (ir or out or md or vn or rep or dup):
+        print("\n\n\nYou didn't select any cleaning method.\n\n\n")
     if ir:
-        delete_last_two_columns()
+        df_to_clean = delete_last_two_columns(df_to_clean)
     if out:
-        outliersfunction()
+        df_to_clean = outliersfunction(df_to_clean)
     if md:
-        mistakendata()
+        df_to_clean = mistakendata(df_to_clean)
     if vn:
-        eliminar_nulos()
+        df_to_clean = eliminar_nulos(df_to_clean)
     if rep:
-        repeated_values()
+        df_to_clean = repeated_values(df_to_clean)
     if dup:
-        deal_with_duplicates()
+        df_to_clean = deal_with_duplicates(df_to_clean)
+    if False == (ir and out and md and vn and rep and dup):
+        print("\n\n\nRemember that there are still things to clean!\n\n\n")
 
 if __name__ == '__main__':
     cleaning()

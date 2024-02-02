@@ -1,12 +1,10 @@
-import pandas as pd
 import numpy as np
 
-def mistakendata():
-    df = pd.read_csv("Dataset.csv")
-    print("Valores únicos que toma la variable antes:", df['Dependent_count'].unique())
-    df['Dependent_count'] = df['Dependent_count'].replace(-1, np.nan)
-    print("Valores únicos que toma la variable despues:", df['Dependent_count'].unique())
-    df.to_csv("Dataset.csv", index=False)
-
-if __name__ == "__main__":
-    mistakendata()
+def mistakendata(df_to_clean):
+    
+    print("General description of the variable to have a general idea:\n\n\n",df_to_clean['Dependent_count'].describe(),"\n\n\n")
+    print("Unique values that the variable takes:",df_to_clean['Dependent_count'].unique())
+    if (df_to_clean['Dependent_count'] < 0).any():
+        df_to_clean['Dependent_count'] = df_to_clean['Dependent_count'].replace(-1, np.nan)
+    print("Unique values that the variable takes:",df_to_clean['Dependent_count'].unique())
+    return df_to_clean

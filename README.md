@@ -33,13 +33,11 @@
 
 [4.   Understanding the data](#section4)
 
-](#section4)
+[5.   Data cleaning](#section5)
 
-[5.   Data cleaning 
+[6.   Exploring data](#section6)
 
-Exploring data](#section5)
-
-[6.   Feature engineering](#section6)
+Feature engineering
 
 [7.   Exploratory Data Analysis - Data Visualization](#section7)
 
@@ -108,12 +106,11 @@ En primer lugar, use el siguiente comando para instalar las mismas versiones de 
 
 <div style="border-top: 2px solid black;"></div>
 
-
 [GO UP](#section0)
 
 Con el siguiente comando puede leer el dataset:
 
-    python scripts/read_data.py -r
+    python scripts/main.py -d FinalProject.csv
 
 Con el siguiente
 
@@ -129,12 +126,13 @@ Con el siguiente
 
 Con el siguiente comando, se van a mostrar algunas características del dataset.
 
-    python scripts/read_Data.py -u
+    python scripts/main.py -d FinalProject.csv -u
 
 <div style="border-top: 4px solid black;"></div>
 
-<a id="section4"></a>
-# 4. Data Cleaning
+<a id="section5"></a>
+
+# 5. Data Cleaning
 
 [GO UP](#section0)
 
@@ -150,6 +148,8 @@ E. Repeated categories
 
 F. Dealing with duplicates and repeated usernames
 
+!  Testing the data cleaning
+
 <div style="border-top: 2px solid black;"></div>
 
 ### A. Irrellevant variables/columns
@@ -160,7 +160,7 @@ El creador del dataset avisa que las dos últimas columnas son un error y es rec
 
 Con el siguiente comando podrás eliminarlas:
 
-    python scripts/cleaning_data.py -ir
+    python scripts/main.py -d FinalProject.csv -c -ir
 
 <div style="border-top: 2px solid black;"></div>
 
@@ -176,7 +176,10 @@ Mediante un script llamado outliers, dentro del directorio cleaning, se siguen l
 
 - Se generará otro gráfico para cada una de las mismas variables, pero esta vez sin outliers.
 
-    python scripts/cleaning_data.py -out
+        python scripts/main.py -d FinalProject.csv -c -out
+
+
+<div style="border-top: 2px solid black;"></div>
 
 ### C. Mistaken data
 
@@ -184,7 +187,7 @@ Alguna variable toma valores sin sentido:
 
 La variable **Dependent_count** representa el número de personas que dependen económicamente del usuario. Por tanto, no tiene sentido que haya usuarios con -1 personas dependientes. En conclusión, esa data está mal y vamos a eliminarla. Para no perder la información de todas esas columnas vamos a asignar un valor nulo, que posteriormente ya veremos cómo tratar.
 
-    python scripts/cleaning_data.py -md
+    python scripts/main.py -d FinalProject.csv -c -md
 
 <div style="border-top: 2px solid black;"></div>
 
@@ -195,9 +198,7 @@ Con el siguiente comando, observará el número de valores nulos para cada varia
 - los valores nulos en variables numéricas, se reemplazarán por el promedio de la variable numérica
 - los valores nulos en variables categóricas serán eliminados
 
-   
-
-        python scripts/cleaning_data.py -vn
+        python scripts/main.py -d FinalProject.csv -c -vn
 
 <div style="border-top: 2px solid black;"></div>
 
@@ -208,7 +209,7 @@ Hay algunos valores de variables que representan lo mismo.
 
 Por ejemplo: F = f = female = Female 
 
-    python scripts/cleaning_data.py -rep
+    python scripts/main.py -d FinalProject.csv -c -rep
 
 <div style="border-top: 2px solid black;"></div>
 
@@ -216,5 +217,19 @@ Por ejemplo: F = f = female = Female
 
 Con el comando a continuación se identifica y cuenta las filas duplicadas en el conjunto de datos y en caso de haber usuarios repetidos.
 
-    python scripts/cleaning_data.py -dup
+    ython scripts/main.py -d FinalProject.csv -c -dup
+
+### !  Testing the data cleaning
+
+Para testear la eliminación de valores nulos: 
+
+    pytest tests/test_nulos.py
+
+Para testear la limpieza del dataset
+
+    pytest tests/test_cleaning_data.py
+
+Para testear los usuarios repetidos
+
+    pytest tests/test_cleaning_data.py
 

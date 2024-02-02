@@ -1,18 +1,17 @@
 import pandas as pd
 
-def eliminar_nulos():
-    df = pd.read_csv("Dataset.csv")
-    print("Valores nulos antes: \n",df.isnull().sum(),"\n\n\n")
-    numeric_columns = df.select_dtypes(include=['number']).columns
-    categorical_columns = df.select_dtypes(exclude=['number']).columns
+def eliminar_nulos(df_to_clean):
+    """
+    Delete null values
+    """
+    print("Valores nulos antes: \n",df_to_clean.isnull().sum(),"\n\n\n")
+    numeric_columns = df_to_clean.select_dtypes(include=['number']).columns
+    categorical_columns = df_to_clean.select_dtypes(exclude=['number']).columns
 
     for column in numeric_columns:
-        df[column].fillna(df[column].mean(), inplace=True)
+        df_to_clean[column].fillna(df_to_clean[column].mean(), inplace=True)
 
-    df.dropna(subset=categorical_columns, inplace=True)
+    df_to_clean.dropna(subset=categorical_columns, inplace=True)
     
-    print("Valores nulos despues: \n",df.isnull().sum(),"\n")
-    df.to_csv("Dataset.csv", index=False)
-
-if __name__ == "__main__":
-    eliminar_nulos()
+    print("Valores nulos despues: \n",df_to_clean.isnull().sum(),"\n")
+    return df_to_clean
