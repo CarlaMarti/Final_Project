@@ -68,7 +68,8 @@ def plot_correlations(df_to_explore_encoded):
 
     # Acercamiento 2: actividad financiera
     plt.figure(figsize=(10, 8))
-    sns.heatmap(df_to_explore_encoded[lista2].corr(), cmap="Greens", annot=True)
+    sns.heatmap(df_to_explore_encoded[lista2].corr(),
+                cmap="Greens", annot=True)
     plt.savefig("correlations/correlation2.png")
 
     # Acercamiento 3: información demográfica y de cuenta

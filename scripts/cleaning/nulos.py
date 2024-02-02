@@ -1,4 +1,3 @@
-import pandas as pd
 
 
 def eliminar_nulos(df_to_clean):

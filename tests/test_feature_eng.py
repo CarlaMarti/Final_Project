@@ -14,7 +14,7 @@ class TestCreatingVariables(unittest.TestCase):
         self.assertNotEqual(
             len(df.columns),
             len(df_changed.columns),
-            "Number of columns in the original DataFrame is equal to the number of columns in the modified DataFrame",
+            "Same number of columns",
         )
 
     def test_encoding_categorical(self):
@@ -31,7 +31,7 @@ class TestCreatingVariables(unittest.TestCase):
         self.assertNotEqual(
             len(df2.columns),
             len(df2_changed.columns),
-            "Number of columns in the original DataFrame is equal to the number of columns in the modified DataFrame",
+            "Same number of columns",
         )
 
 

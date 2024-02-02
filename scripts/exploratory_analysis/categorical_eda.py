@@ -9,7 +9,8 @@ class CatEDA:
         for col in df_to_explore.columns:
             if df_to_explore[col].dtype == "O":
                 plt.figure(figsize=(8, 6))  # Optional size for the figure
-                df_to_explore[col].value_counts().plot(kind="bar", color=palette)
+                df_to_explore[col].value_counts().plot(
+                    kind="bar", color=palette)
                 plt.title(col.upper())  # Title with column name in uppercase
                 plt.xlabel(col)  # Label for x-axis
                 plt.ylabel("Count")  # Label for y-axis

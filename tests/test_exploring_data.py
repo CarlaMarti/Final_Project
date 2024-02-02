@@ -24,7 +24,7 @@ class TestFunctions(unittest.TestCase):
         Test if plot_correlations function generates files
         """
         files = os.listdir("exploring_data/general")
-        self.assertTrue(len(files) > 0, "No files found in 'exploring_data' folder")
+        self.assertTrue(len(files) > 0, "No files found.")
 
 
 if __name__ == "__main__":

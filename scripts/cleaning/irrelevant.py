@@ -8,9 +8,9 @@ def delete_last_two_columns(df_to_clean):
         if len(df_to_clean.columns) >= 2:
             df_to_clean = df_to_clean.iloc[:, :-2]
             print("\n\nColumnas después:\n", list(df_to_clean.columns))
-            print("\n\nSe eliminaron las dos últimas columnas exitosamente.\n\n")
+            print("\n\nSe eliminaron las dos últimas columnas.\n\n")
         else:
-            print("\n\nNo hay suficientes columnas para eliminar las dos últimas.\n\n")
+            print("\n\nNo hay suficientes columnas para eliminar.\n\n")
     except Exception as e:
         print("Ocurrió un error:", e)
     return df_to_clean

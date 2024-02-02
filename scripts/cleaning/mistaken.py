@@ -12,7 +12,8 @@ def mistakendata(df_to_clean):
         df_to_clean["Dependent_count"].unique(),
     )
     if (df_to_clean["Dependent_count"] < 0).any():
-        df_to_clean["Dependent_count"] = df_to_clean["Dependent_count"].replace(
+        df_to_clean["Dependent_count"] = df_to_clean[
+            "Dependent_count"].replace(
             -1, np.nan
         )
     print(

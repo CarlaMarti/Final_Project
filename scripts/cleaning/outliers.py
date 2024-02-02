@@ -1,5 +1,3 @@
-import click
-import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
@@ -32,11 +30,12 @@ def outliersfunction(df_to_clean):
                 plt.clf()
 
                 sns.boxplot(
-                    x=df_to_clean[~df_to_clean.index.isin(outliers.index)][column]
+                    x=df_to_clean[~df_to_clean.
+                                  index.isin(outliers.index)][column]
                 ).set_title(f"After Cleaning - {column}")
                 plt.savefig(f"outliers/after/{column}_after.png")
 
         print(
-            "Outliers detection and removal completed. Images saved in 'outliers' folder."
+            "Outliers removal completed. Images saved in 'outliers'."
         )
         return df_to_clean

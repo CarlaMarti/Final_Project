@@ -18,7 +18,7 @@ class TestFunctions(unittest.TestCase):
         Test if plot_correlations function generates files
         """
         files = os.listdir("correlations")
-        self.assertTrue(len(files) > 0, "No files found in 'correlations' folder")
+        self.assertTrue(len(files) > 0, "No files found")
 
     def test_graphs_directory(self):
         """
