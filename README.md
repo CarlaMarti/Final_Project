@@ -33,13 +33,11 @@
 
 [4.   Understanding the data](#section4)
 
-](#section4)
+[5.   Data cleaning](#section5)
 
-[5.   Data cleaning 
+[6.   Exploring data](#section6)
 
-Exploring data](#section5)
-
-[6.   Feature engineering](#section6)
+Feature engineering
 
 [7.   Exploratory Data Analysis - Data Visualization](#section7)
 
@@ -108,12 +106,11 @@ En primer lugar, use el siguiente comando para instalar las mismas versiones de 
 
 <div style="border-top: 2px solid black;"></div>
 
-
 [GO UP](#section0)
 
 Con el siguiente comando puede leer el dataset:
 
-    python scripts/read_Data.py -r
+    python scripts/main.py -d FinalProject.csv
 
 Con el siguiente
 
@@ -129,5 +126,110 @@ Con el siguiente
 
 Con el siguiente comando, se van a mostrar algunas características del dataset.
 
-    python scripts/read_Data.py -u
+    python scripts/main.py -d FinalProject.csv -u
+
+<div style="border-top: 4px solid black;"></div>
+
+<a id="section5"></a>
+
+# 5. Data Cleaning
+
+[GO UP](#section0)
+
+A. Irrellevant variables/columns
+
+B. Dealing with outliers
+
+C. Mistaken data
+
+D. Null values
+
+E. Repeated categories
+
+F. Dealing with duplicates and repeated usernames
+
+!  Testing the data cleaning
+
+<div style="border-top: 2px solid black;"></div>
+
+### A. Irrellevant variables/columns
+
+El creador del dataset avisa que las dos últimas columnas son un error y es recomendable eliminarlas antes de empezar cualquier proyecto. 
+
+**Atención!** En caso de realizar el comando 2 veces, se perderá información relevante para el análisis. 
+
+Con el siguiente comando podrás eliminarlas:
+
+    python scripts/main.py -d FinalProject.csv -c -ir
+
+<div style="border-top: 2px solid black;"></div>
+
+### B. Dealing with Outliers
+
+Mediante un script llamado outliers, dentro del directorio cleaning, se siguen los siguientes pasos:
+
+- Se detectan outliers (he decidido ser muy flexible a la hora de determinar cuál era la distancia para que se considerara outlier para no perder mucha información válida).
+
+- Se generará un gráfico de la dispersión para cada una de las variables con outliers, dentro de una carpeta "before", dentro de la carpeta "outliers" que se crearán en caso de no existir
+
+- Se eliminan los outliers
+
+- Se generará otro gráfico para cada una de las mismas variables, pero esta vez sin outliers.
+
+        python scripts/main.py -d FinalProject.csv -c -out
+
+
+<div style="border-top: 2px solid black;"></div>
+
+### C. Mistaken data
+
+Alguna variable toma valores sin sentido:
+
+La variable **Dependent_count** representa el número de personas que dependen económicamente del usuario. Por tanto, no tiene sentido que haya usuarios con -1 personas dependientes. En conclusión, esa data está mal y vamos a eliminarla. Para no perder la información de todas esas columnas vamos a asignar un valor nulo, que posteriormente ya veremos cómo tratar.
+
+    python scripts/main.py -d FinalProject.csv -c -md
+
+<div style="border-top: 2px solid black;"></div>
+
+### D. Null Values
+
+Con el siguiente comando, observará el número de valores nulos para cada variable y se eliminarán de la siguiente forma:
+
+- los valores nulos en variables numéricas, se reemplazarán por el promedio de la variable numérica
+- los valores nulos en variables categóricas serán eliminados
+
+        python scripts/main.py -d FinalProject.csv -c -vn
+
+<div style="border-top: 2px solid black;"></div>
+
+### E. Repeated Categories
+
+
+Hay algunos valores de variables que representan lo mismo. 
+
+Por ejemplo: F = f = female = Female 
+
+    python scripts/main.py -d FinalProject.csv -c -rep
+
+<div style="border-top: 2px solid black;"></div>
+
+### F. Dealing with duplicates or repeated users
+
+Con el comando a continuación se identifica y cuenta las filas duplicadas en el conjunto de datos y en caso de haber usuarios repetidos.
+
+    ython scripts/main.py -d FinalProject.csv -c -dup
+
+### !  Testing the data cleaning
+
+Para testear la eliminación de valores nulos: 
+
+    pytest tests/test_nulos.py
+
+Para testear la limpieza del dataset
+
+    pytest tests/test_cleaning_data.py
+
+Para testear los usuarios repetidos
+
+    pytest tests/test_cleaning_data.py
 
