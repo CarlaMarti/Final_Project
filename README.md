@@ -335,3 +335,21 @@ A continuación vamos a codificar algunas de las variables categoricas para pode
 - Label Encoding
 - One Hot Encoding
 
+        python scripts/main.py -d FinalProject.csv -fe -enc
+
+Vemos que se ha creado una columna (que toma valor 0 o 1) para cada una de las categorías. El tipo de data de estas nuevas columnas es muy simple_ uint8, ya que solamente debe tomar 0s o 1s. También vemos que las variables iniciales (que tomaban como valores cada una de las categorías) ya no están. 
+
+<div style="border-top: 4px solid black;"></div>
+
+<a id="section7"></a>
+# 7. Exploratory Data Analysis - Data Visualization
+
+[GO UP](#section0)
+
+- A. Deciding what to analyze
+- B. Graphical representations
+
+<div style="border-top: 2px solid black;"></div>
+<br>
+Recordemos que el problema u **objetivo inicial es identificar aquellos perfiles o aquellas características de las personas que abandonan los servicios bancarios** para poder identificarlos antes de que hagan el abandono. Por tanto, **cómo se relacionen las otras variables no será de nuestro interés para este análisis**, aunque podrían haber relaciones muy fuertes y determinantes.
+

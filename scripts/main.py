@@ -22,8 +22,9 @@ from feature_eng import feature_engineering_
 @click.option('-neda', '--numerical_eda', is_flag=True, help='Numerical EDA')
 @click.option('-fe', '--feature_engineering', is_flag=True, help='Feature engineering.')
 @click.option('-nvar', '--new_variables', is_flag=True, help='Create new variables.')
+@click.option('-enc', '--encoding', is_flag=True, help='Encode categorical variables.')
 
-def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove_outliers, remove_mistaken_data, remove_null_values, remove_repeated, remove_duplicates, exploratory_a, plot_general_distributions, categorical_eda, numerical_eda, feature_engineering, new_variables):
+def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove_outliers, remove_mistaken_data, remove_null_values, remove_repeated, remove_duplicates, exploratory_a, plot_general_distributions, categorical_eda, numerical_eda, feature_engineering, new_variables, encoding):
     """
     Main code.
     """
@@ -42,7 +43,7 @@ def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove
     
     if feature_engineering:
         df_to_engineer = cleaning(df, True, True, True, True, True, True)
-        feature_engineering_(df_to_engineer, new_variables)
+        feature_engineering_(df_to_engineer, new_variables, encoding)
 
 
 if __name__ == '__main__':
