@@ -311,3 +311,27 @@ Para obtener un análisis de las variables numéricas use el siguiente comando:
 - B. Encoding categorical variables
 
 <div style="border-top: 2px solid black;"></div>
+
+### A. Creating new variables with the existing ones
+<div style="border-top: 2px solid black;"></div>
+
+Para crear nuevas columnas a partir de las ya existentes, por favor, use el siguiente comando:
+
+    python scripts/main.py -d FinalProject.csv -fe -nvar
+
+En pantalla podrá observar que se han creado 2 variables:
+
+* Total_Trans_Amt  / Total_Trans_Ct = Avg_Trans_Amt  
+
+* Avg_Utilization_Ratio * 100 = Avg_Utilization_Ratio_Percentage
+
+<div style="border-top: 2px solid black;"></div>
+
+### B. Encoding categorical variables
+<div style="border-top: 2px solid black;"></div>
+
+A continuación vamos a codificar algunas de las variables categoricas para poder incluirlas en el gráfico de correlaciones, por ejemplo.
+
+- Label Encoding
+- One Hot Encoding
+
