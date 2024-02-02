@@ -4,6 +4,7 @@ from understanding import understandingdata
 from cleaning_data import cleaning
 from exploring_data import exploring
 from feature_eng import feature_engineering_
+from exploring_data_encoded import exploring_encoded
 
 
 @click.command(short_help='Parser to manage inputs for BooksDataset.')
@@ -23,8 +24,12 @@ from feature_eng import feature_engineering_
 @click.option('-fe', '--feature_engineering', is_flag=True, help='Feature engineering.')
 @click.option('-nvar', '--new_variables', is_flag=True, help='Create new variables.')
 @click.option('-enc', '--encoding', is_flag=True, help='Encode categorical variables.')
+@click.option('-ee', '--exploratory_analysis_once_encoded', is_flag=True, help='Explore dataset with the feature engineering.')
+@click.option('-corr', '--correlations', is_flag=True, help='See the relations between variables.')
+@click.option('-g', '--graphs', is_flag=True, help='Graph the relationships with Attrition Flag.')
 
-def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove_outliers, remove_mistaken_data, remove_null_values, remove_repeated, remove_duplicates, exploratory_a, plot_general_distributions, categorical_eda, numerical_eda, feature_engineering, new_variables, encoding):
+
+def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove_outliers, remove_mistaken_data, remove_null_values, remove_repeated, remove_duplicates, exploratory_a, plot_general_distributions, categorical_eda, numerical_eda, feature_engineering, new_variables, encoding, exploratory_analysis_once_encoded, correlations, graphs):
     """
     Main code.
     """
@@ -44,6 +49,11 @@ def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove
     if feature_engineering:
         df_to_engineer = cleaning(df, True, True, True, True, True, True)
         feature_engineering_(df_to_engineer, new_variables, encoding)
+
+    if exploratory_analysis_once_encoded:
+            df_to_engineer = cleaning(df, True, True, True, True, True, True)
+            df_to_explore_encoded =  feature_engineering_(df_to_engineer, True, True)
+            exploring_encoded(df_to_explore_encoded, correlations, graphs)
 
 
 if __name__ == '__main__':

@@ -39,7 +39,9 @@
 
 [7.   Feature Engineering](#section7)
 
-[8.   Predictive Model](#section8)
+[8.   Exploratory Data Analysis Once Encoded](#section8)
+
+Predictive Model
 
 [9.   Communicating the findings](#section9)
 
@@ -342,14 +344,27 @@ Vemos que se ha creado una columna (que toma valor 0 o 1) para cada una de las c
 <div style="border-top: 4px solid black;"></div>
 
 <a id="section7"></a>
-# 7. Exploratory Data Analysis - Data Visualization
+# 8. Exploratory Data Analysis Once Encoded
 
 [GO UP](#section0)
 
 - A. Deciding what to analyze
-- B. Graphical representations
+- B. Graphical representations to develop analysis
 
 <div style="border-top: 2px solid black;"></div>
 <br>
 Recordemos que el problema u **objetivo inicial es identificar aquellos perfiles o aquellas características de las personas que abandonan los servicios bancarios** para poder identificarlos antes de que hagan el abandono. Por tanto, **cómo se relacionen las otras variables no será de nuestro interés para este análisis**, aunque podrían haber relaciones muy fuertes y determinantes.
+
+    python scripts/main.py -d FinalProject.csv -ee -corr
+
+Se genera una carpeta llamada correlations, en donde podemos observar como se relaciona la variable '!ATTRITION_FLAG!' con las demás. Con esto podremos concluir que factores hacen que sea más probable que un cliente abandone el banco.
+
+*Interpretaciones:*
+
+Las variables Total_Relationship_Count, Months_Inactive_12_mon, Contacts_Count_12_mon, CLIENTNUM, Total_Trans_Amt, Total_Trans_Ct Total_Revolving_Bal, Total_Amt_Chng_Q4_Q1, Total_Ct_Chng_Q4_Q1 y Avg_Utilization_Ratio muestran correlaciones con la variable de interés, Attrition_Flag, lo que indica la necesidad de crear gráficos para explorar estas relaciones. 
+
+### B. Graphical representation
+<div style="border-top: 2px solid black;"></div>
+
+
 
