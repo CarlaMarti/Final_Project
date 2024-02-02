@@ -16,10 +16,10 @@ from exploring_data import exploring
 @click.option('-dup', '--remove_duplicates', is_flag=True, help='Delete duplicated values or users')
 @click.option('-e', '--exploratory_a', is_flag=True, help='Explore dataset')
 @click.option('-pgd', '--plot_general_distributions', is_flag=True, help='Plot general distributions')
-@click.option('-pnv', '--plot_numerical_variables', is_flag=True, help='Plot numerical variables')
 @click.option('-ceda', '--categorical_eda', is_flag=True, help='Categorical EDA')
+@click.option('-neda', '--numerical_eda', is_flag=True, help='Numerical EDA')
 
-def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove_outliers, remove_mistaken_data, remove_null_values, remove_repeated, remove_duplicates, exploratory_a, plot_general_distributions, categorical_eda, plot_numerical_variables):
+def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove_outliers, remove_mistaken_data, remove_null_values, remove_repeated, remove_duplicates, exploratory_a, plot_general_distributions, categorical_eda, numerical_eda):
     """
     Main code.
     """
@@ -34,11 +34,9 @@ def main(dataset, understanding, datacleaning, remove_irrelevant_columns, remove
     
     if exploratory_a:
         df_to_explore = cleaning(df, True, True, True, True, True, True)
-        exploring(df_to_explore, plot_general_distributions, categorical_eda, plot_numerical_variables)
-        
+        exploring(df_to_explore, plot_general_distributions, categorical_eda, numerical_eda)
 
-
-    
+  
 if __name__ == '__main__':
     print("\n\n\nInstruction received!\n\n\n")
     main()
