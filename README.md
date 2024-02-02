@@ -10,7 +10,7 @@
 
 > *Course:* ADVANCED PYTHON
 
-> *Date:* 02/01/2024
+> *Date:* 02/02/2024
 
 <div style="border-top: 2px solid black;"></div>
 
@@ -41,7 +41,7 @@
 
 [8.   Exploratory Data Analysis Once Encoded](#section8)
 
-[9.   Predictive Model](#section9)
+[9.   Testing and Linting](#section9)
 
 [GO UP](#section0)
 
@@ -217,16 +217,12 @@ Con el comando a continuación se identifica y cuenta las filas duplicadas en el
 
     python scripts/main.py -d FinalProject.csv -c -dup
 
-### !  Testing the data cleaning
-
-Para testear las funciones de limpieza del dataset
-
-    pytest tests/test_cleaning_data.py
+Ahora el dataset está preparado para ser trabajado!
 
 <div style="border-top: 4px solid black;"></div>
 
 <a id="section6"></a>
-# 6. Exploratory Data Analysis - Feature engineering - Data Visualization
+# 6. Exploratory Data Analysis - Data Visualization
 
 [GO UP](#section0)
 
@@ -236,7 +232,7 @@ Para testear las funciones de limpieza del dataset
 
     python scripts/main.py -d FinalProject.csv -e -pgd
 
-Check the directory exploring_data/categoricalEDA
+Una vez usado el comando, observe el directorio: exploring_data/general
 
 ### A. Categorical EDA
 
@@ -246,7 +242,7 @@ Use el siguiente comando:
 
     python scripts/main.py -d FinalProject.csv -e -ceda
 
-Con este obtendrá una imagen, un diagrama de barras para cada variable categorica.
+Con este obtendrá una imagen, un diagrama de barras para cada variable categorica. Observe el directorio exploring_data/categorical_bars
 
 *Interpretaciones:*
 
@@ -269,6 +265,8 @@ Con este obtendrá una imagen, un diagrama de barras para cada variable categori
 Para obtener un análisis de las variables numéricas use el siguiente comando:
 
     python scripts/main.py -d FinalProject.csv -e -neda
+
+Observe el directorio exploring_data/numerical_histograms.
 
 *Interpretaciones:*
 
@@ -324,6 +322,8 @@ En pantalla podrá observar que se han creado 2 variables:
 * Total_Trans_Amt  / Total_Trans_Ct = Avg_Trans_Amt  
 
 * Avg_Utilization_Ratio * 100 = Avg_Utilization_Ratio_Percentage
+
+Estas variables se usarán posteriormente.
 
 <div style="border-top: 2px solid black;"></div>
 
@@ -429,7 +429,7 @@ Personas que abandonan con Total_Ct_Chng_Q4_Q1 entre 1 y 1.25 entre total person
 
 ### Testing
 
-Use the following command to run all tests at once:
+Use the following commands to run all tests at once (they all pass):
 
     pytest
 
@@ -461,7 +461,8 @@ Use the following commands:
 
 * pylint scripts/exploratory_analysis_encoded --> 9.81
 
-* pylint scripts --> 4.35... (I used a lot of options, and imported many codes)
+* pylint scripts --> 4.54... (I used a lot of options, and imported many codes. In order to improve this mark I had to simplify my project...)
 
 * pylint tests --> 9.64
 
+<div style="border-top: 4px solid black;"></div>

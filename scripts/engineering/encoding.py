@@ -36,14 +36,17 @@ def encoding_categorical(df_to_engineer):
         df_to_engineer[columns_to_encode].sample(3), "\n\n\n"
     )
 
+    encoded_dfs = []
+
     for category in columns_to_encode:
         df_encoded = pd.get_dummies(df_to_engineer[category], prefix=category)
         df_encoded = df_encoded.apply(
             lambda x: x.map({True: 1, False: 0})
-        )  # Convertir True a 1 y False a 0
-        print(df_encoded.sample(3))
-        print("\n\n")
+        )
+        encoded_dfs.append(df_encoded)
 
-    print(df_to_engineer.columns)
+    df_to_engineer = pd.concat([df_to_engineer] + encoded_dfs, axis=1)
+
+    print("\n\nActual variables:\n\n", df_to_engineer.columns)
 
     return df_to_engineer
