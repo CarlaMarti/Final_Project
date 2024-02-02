@@ -1,8 +1,13 @@
-import pandas as pd
+"""
+Repeated values and users
+"""
 
 
 def repeated_values(df_to_clean):
-    print("We see the different categories of gender ( male and female are repeated ):")
+    """
+    Repeated values
+    """
+    print("We see the different categories of gender repeated:")
     print(df_to_clean["Gender"].value_counts())
 
     df_to_clean["Gender"] = df_to_clean["Gender"].str.capitalize()

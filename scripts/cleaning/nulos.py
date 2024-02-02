@@ -1,4 +1,6 @@
-import pandas as pd
+"""
+Nul values
+"""
 
 
 def eliminar_nulos(df_to_clean):

@@ -1,9 +1,9 @@
+"""
+Test cleaning data
+"""
+import os
 import unittest
 import pandas as pd
-import numpy as np
-import os
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 # Importa las funciones que necesitan ser probadas
 from scripts.cleaning.duplicates import deal_with_duplicates
@@ -38,7 +38,9 @@ class TestCleaningDataFunctions(unittest.TestCase):
         Prueba la función deal_with_duplicates
         """
         df_cleaned = deal_with_duplicates(self.df.copy())
-        self.assertEqual(len(df_cleaned), len(self.df.drop_duplicates("CLIENTNUM")))
+        self.assertEqual(len(df_cleaned),
+                         len(self.df.drop_duplicates("CLIENTNUM"
+                                                     )))
 
     def test_delete_last_two_columns(self):
         """
@@ -72,12 +74,13 @@ class TestCleaningDataFunctions(unittest.TestCase):
             "outliers/after"
         ), "Folder 'outliers/after' does not exist"
 
-        df_cleaned = outliersfunction(self.df.copy())
+        outliersfunction(self.df.copy())
 
         before_images_path = "outliers/before"
         after_images_path = "outliers/after"
 
-        if os.path.exists(before_images_path) and os.path.exists(after_images_path):
+        if os.path.exists(before_images_path
+                          ) and os.path.exists(after_images_path):
             print("Images downloaded successfully!")
         else:
             assert "No images found in 'outliers/before' folder"

@@ -8,16 +8,25 @@ from scripts.engineering.encoding import encoding_categorical
 
 
 class TestCreatingVariables(unittest.TestCase):
+    """
+    Testing creating variables
+    """
     def test_creating_variables(self):
+        """
+        Testing the creation code
+        """
         df = pd.read_csv("FinalProject.csv")
         df_changed = creating_variables(df)
         self.assertNotEqual(
             len(df.columns),
             len(df_changed.columns),
-            "Number of columns in the original DataFrame is equal to the number of columns in the modified DataFrame",
+            "Same number of columns",
         )
 
     def test_encoding_categorical(self):
+        """
+        Testing the encoding code
+        """
         df2 = pd.read_csv("FinalProject.csv")
         df2_changed = df2.copy()
         df2_changed = encoding_categorical(df2_changed)
@@ -31,7 +40,7 @@ class TestCreatingVariables(unittest.TestCase):
         self.assertNotEqual(
             len(df2.columns),
             len(df2_changed.columns),
-            "Number of columns in the original DataFrame is equal to the number of columns in the modified DataFrame",
+            "Same number of columns",
         )
 
 

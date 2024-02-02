@@ -1,7 +1,13 @@
+"""
+Encoding
+"""
 import pandas as pd
 
 
 def encoding_categorical(df_to_engineer):
+    """
+    Encoding categorical
+    """
     print("\n\n\nENCODING")
 
     # label_encoding
@@ -11,7 +17,8 @@ def encoding_categorical(df_to_engineer):
     )
 
     print(
-        "\n\n", df_to_engineer[["Attrition_Flag", "!ATTRITION_FLAG!"]].sample(5), "\n\n"
+        "\n\n", df_to_engineer[["Attrition_Flag",
+                                "!ATTRITION_FLAG!"]].sample(5), "\n\n"
     )
 
     # one_hot_encoding
@@ -25,7 +32,8 @@ def encoding_categorical(df_to_engineer):
     ]
 
     print(
-        "\nColumns to encode:\n", df_to_engineer[columns_to_encode].sample(3), "\n\n\n"
+        "\nColumns to encode:\n",
+        df_to_engineer[columns_to_encode].sample(3), "\n\n\n"
     )
 
     for category in columns_to_encode:

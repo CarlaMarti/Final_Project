@@ -1,3 +1,6 @@
+"""
+Feature engineering
+"""
 from engineering.new_variables import creating_variables
 from engineering.encoding import encoding_categorical
 
