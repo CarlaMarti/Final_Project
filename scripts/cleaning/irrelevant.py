@@ -4,7 +4,7 @@ def delete_last_two_columns(df_to_clean):
     """
     try:
         print("\n\nColumnas antes:\n", list(df_to_clean.columns), "\n\n\n")
-        
+
         if len(df_to_clean.columns) >= 2:
             df_to_clean = df_to_clean.iloc[:, :-2]
             print("\n\nColumnas después:\n", list(df_to_clean.columns))
