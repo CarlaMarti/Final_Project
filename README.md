@@ -419,10 +419,49 @@ Personas que abandonan con Total_Ct_Chng_Q4_Q1 entre 1 y 1.25 entre total person
 
 <a id="section9"></a>
 
-# 8. Predictive Model
+# 9. Testing and Linting
 
 [GO UP](#section0)
 
 <div style="border-top: 2px solid black;"></div>
 
+<br>
+
+### Testing
+
+Use the following command to run all tests at once:
+
+    pytest
+
+or
+
+    python -m unittest
+
+### Linting
+
+#### flake8
+
+Use the following command:
+
+    flake8
+
+There are two errors I couldn't solve.
+The name of the variable is larger than the limit stablished.
+
+#### pytest
+
+Use the following commands:
+
+* pylint scripts/cleaning --> 9.71
+
+
+* pylint scripts/cleaning ---> 10
+
+* pylint scripts/exploratory_analysis --> 9.35
+
+* pylint scripts/exploratory_analysis_encoded --> 9.81
+
+* pylint scripts --> 4.35... (I used a lot of options, and imported many codes)
+
+* pylint tests --> 9.64
 

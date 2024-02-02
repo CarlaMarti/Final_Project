@@ -1,5 +1,8 @@
-import matplotlib.pyplot as plt
+"""
+Numerical EDA
+"""
 import os
+import matplotlib.pyplot as plt
 
 
 def numerical_histograms(df_to_explore):

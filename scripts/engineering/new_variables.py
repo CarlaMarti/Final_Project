@@ -1,4 +1,12 @@
+"""
+New variables
+"""
+
+
 def creating_variables(df_to_engineer):
+    """
+    Function that creates new variables
+    """
     # Variable 1: Average Amount per Transaction = Avg_Trans_Amt
     df_to_engineer = df_to_engineer.assign(
         Avg_Trans_Amt=lambda x: round(

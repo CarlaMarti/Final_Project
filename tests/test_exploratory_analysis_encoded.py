@@ -1,3 +1,7 @@
+"""
+Exploratory analysis test
+"""
+
 import os
 import unittest
 

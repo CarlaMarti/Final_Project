@@ -1,3 +1,8 @@
+"""
+Irrelevant columns
+"""
+
+
 def delete_last_two_columns(df_to_clean):
     """
     Deletes the two irrelevant columns

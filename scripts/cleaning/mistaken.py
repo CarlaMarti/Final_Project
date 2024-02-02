@@ -1,7 +1,14 @@
+"""
+Mistaken data
+"""
+
 import numpy as np
 
 
 def mistakendata(df_to_clean):
+    """
+    Mistaken
+    """
     print(
         "General description of the variable to have a general idea:\n\n\n",
         df_to_clean["Dependent_count"].describe(),

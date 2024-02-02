@@ -1,9 +1,15 @@
+"""
+General Distributions
+"""
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
 
 
 def plot_general_distributions(df_to_explore):
+    """
+    Plot geeral distributions
+    """
     fig, (
         (ax1, ax2, ax3, ax4),
         (ax5, ax6, ax7, ax8),

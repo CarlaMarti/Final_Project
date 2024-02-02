@@ -1,6 +1,12 @@
+"""
+Repeated values and users
+"""
 
 
 def repeated_values(df_to_clean):
+    """
+    Repeated values
+    """
     print("We see the different categories of gender repeated:")
     print(df_to_clean["Gender"].value_counts())
 

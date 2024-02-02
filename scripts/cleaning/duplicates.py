@@ -1,6 +1,12 @@
+"""
+Duplicates
+"""
 
 
 def deal_with_duplicates(df_to_clean):
+    """
+    Deal with duplicates
+    """
     duplicates = df_to_clean.duplicated()
     print("Duplicated rows:", df_to_clean[duplicates].count().sum())
     df_to_clean.drop_duplicates(inplace=True)

@@ -1,3 +1,6 @@
+"""
+Cleaning data
+"""
 from cleaning.irrelevant import delete_last_two_columns
 from cleaning.outliers import outliersfunction
 from cleaning.mistaken import mistakendata
@@ -7,6 +10,9 @@ from cleaning.duplicates import deal_with_duplicates
 
 
 def cleaning(df_to_clean, ir, out, md, vn, rep, dup):
+    """
+    Cleaning call function
+    """
     if False == (ir or out or md or vn or rep or dup):
         print("\n\n\nYou didn't select any cleaning method.\n\n\n")
     if ir:

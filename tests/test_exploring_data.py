@@ -1,3 +1,6 @@
+"""
+Test exploring data
+"""
 import os
 import unittest
 

@@ -1,10 +1,18 @@
+"""
+Categorical EDA
+"""
+import os
 import seaborn as sns
 import matplotlib.pyplot as plt
-import os
 
 
 class CatEDA:
+    """
+    Categorical EDA"""
     def categorical_bars(self, df_to_explore):
+        """
+        Categorical bars
+        """
         palette = sns.color_palette("Oranges")
         for col in df_to_explore.columns:
             if df_to_explore[col].dtype == "O":

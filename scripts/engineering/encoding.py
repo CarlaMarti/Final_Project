@@ -1,7 +1,13 @@
+"""
+Encoding
+"""
 import pandas as pd
 
 
 def encoding_categorical(df_to_engineer):
+    """
+    Encoding categorical
+    """
     print("\n\n\nENCODING")
 
     # label_encoding

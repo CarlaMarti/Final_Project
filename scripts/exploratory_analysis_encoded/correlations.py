@@ -1,9 +1,15 @@
+"""
+Correlations
+"""
 import os
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 
 def plot_correlations(df_to_explore_encoded):
+    """
+    Plot correlations
+    """
     # Lista 1: Información del cliente y sus cuentas
     lista1 = [
         "CLIENTNUM",

@@ -1,3 +1,6 @@
+"""
+Exploring data encoded
+"""
 from exploratory_analysis_encoded.correlations import plot_correlations
 from exploratory_analysis_encoded.graphs import visualize_variables
 

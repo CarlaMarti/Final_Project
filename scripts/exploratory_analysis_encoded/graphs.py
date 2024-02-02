@@ -1,3 +1,6 @@
+"""
+Graphs
+"""
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -9,12 +12,17 @@ if not os.path.exists("graphs"):
 
 
 def guardar_grafico(fig, nombre):
+    """
+    Sets rute to save graphs
+    """
     ruta = os.path.join("graphs", nombre + ".png")
     fig.savefig(ruta)
     print(f"Grafico guardado como: {ruta}")
 
 
 def visualize_variables(df):
+    """
+    To visualize the variables"""
     # Gráfico 1
     fig, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(
         nrows=3, ncols=2, figsize=(15, 15)

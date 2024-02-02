@@ -8,7 +8,13 @@ from scripts.engineering.encoding import encoding_categorical
 
 
 class TestCreatingVariables(unittest.TestCase):
+    """
+    Testing creating variables
+    """
     def test_creating_variables(self):
+        """
+        Testing the creation code
+        """
         df = pd.read_csv("FinalProject.csv")
         df_changed = creating_variables(df)
         self.assertNotEqual(
@@ -18,6 +24,9 @@ class TestCreatingVariables(unittest.TestCase):
         )
 
     def test_encoding_categorical(self):
+        """
+        Testing the encoding code
+        """
         df2 = pd.read_csv("FinalProject.csv")
         df2_changed = df2.copy()
         df2_changed = encoding_categorical(df2_changed)

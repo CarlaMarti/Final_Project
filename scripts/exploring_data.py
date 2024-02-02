@@ -1,3 +1,6 @@
+"""
+Exploring data
+"""
 from exploratory_analysis.general import plot_general_distributions
 from exploratory_analysis.categorical_eda import CatEDA
 from exploratory_analysis.numerical_eda import numerical_histograms

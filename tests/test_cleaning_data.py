@@ -1,6 +1,9 @@
+"""
+Test cleaning data
+"""
+import os
 import unittest
 import pandas as pd
-import os
 
 # Importa las funciones que necesitan ser probadas
 from scripts.cleaning.duplicates import deal_with_duplicates
