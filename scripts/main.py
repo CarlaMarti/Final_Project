@@ -8,6 +8,7 @@ from cleaning_data import cleaning
 from exploring_data import exploring
 from feature_eng import feature_engineering_
 from exploring_data_encoded import exploring_encoded
+from predicting import predictive_m
 
 
 @click.command(short_help="Parser to manage inputs for BooksDataset.")
@@ -63,6 +64,8 @@ from exploring_data_encoded import exploring_encoded
               help="See the relations between variables.")
 @click.option("-g", "--graphs", is_flag=True,
               help="Graph the relationships with Attrition Flag.")
+@click.option("-pm", "--predictive_model", is_flag=True,
+              help="Predictive model.")
 def main(
     dataset,
     understanding,
@@ -83,6 +86,7 @@ def main(
     exploratory_analysis_once_encoded,
     correlations,
     graphs,
+    predictive_model
 ):
     """
     Main code.
@@ -121,6 +125,12 @@ def main(
             df_to_engineer, True, True)
         exploring_encoded(df_to_explore_encoded, correlations, graphs)
 
+    if predictive_model:
+            df_to_engineer = cleaning(df, True, True, True, True, True, True)
+            df_predict = feature_engineering_(
+                df_to_engineer, True, True)
+            print(df_predict.info())
+            predictive_m(df_predict)
 
 if __name__ == "__main__":
     print("\n\n\nInstruction received!\n\n\n")
