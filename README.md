@@ -41,7 +41,9 @@
 
 [8.   Exploratory Data Analysis Once Encoded](#section8)
 
-[9.   Testing and Linting](#section9)
+[9.   Predictive Model](#section9)
+
+[10.   Testing and Linting](#section10)
 
 [GO UP](#section0)
 
@@ -414,12 +416,29 @@ Personas que abandonan con Total_Ct_Chng_Q4_Q1 entre 1 y 1.25 entre total person
 
 >***Interpretación 9:*** Como podemos ver, hay dos modas para los clientes existentes (en 0% y en 60%), y una para los que abandonaron (0%). Observamos que el 65.7% de los clientes que abandonaron tenían una utilización media de entre el 0% y 10%, cuando para la misma utilización solamente hay un 34.8% de los clientes existentes.
 
-
 <div style="border-top: 4px solid black;"></div>
 
 <a id="section9"></a>
 
-# 9. Testing and Linting
+# 9. Predictive Model
+
+[GO UP](#section0)
+
+<div style="border-top: 2px solid black;"></div>
+
+<br>
+
+He desarrollado un modelo predictivo para la variable Avg_Utilization_Ratio. 
+
+    python scripts/main.py -d FinalProject.csv -pm
+
+Como podrá observar en pantalla, el MAE de mi modelo es 0, siendo este perfecto, lo cual es muy inprobable. Es posible que se haya producido data leakage, intentaré arreglarlo a tiempo para la entrega.
+
+<div style="border-top: 4px solid black;"></div>
+
+<a id="section10"></a>
+
+# 10. Testing and Linting
 
 [GO UP](#section0)
 
@@ -461,7 +480,7 @@ Use the following commands:
 
 * pylint scripts/exploratory_analysis_encoded --> 9.81
 
-* pylint scripts --> 4.54... (I used a lot of options, and imported many codes. In order to improve this mark I had to simplify my project...)
+* pylint scripts --> 4.63... (I used a lot of options, and imported many codes. In order to improve this mark I had to simplify my project...)
 
 * pylint tests --> 9.64
 

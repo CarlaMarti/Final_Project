@@ -17,7 +17,7 @@ def normalization(column, name, df_predict):
     df_predict[name] = (column - min_value) / (max_value - min_value)
 
 
-def predictive_model(df):
+def predictive_m(df):
     """
     Predictive model function
     """
