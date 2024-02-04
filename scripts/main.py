@@ -126,11 +126,11 @@ def main(
         exploring_encoded(df_to_explore_encoded, correlations, graphs)
 
     if predictive_model:
-            df_to_engineer = cleaning(df, True, True, True, True, True, True)
-            df_predict = feature_engineering_(
-                df_to_engineer, True, True)
-            print(df_predict.info())
-            predictive_m(df_predict)
+        df_to_engineer = cleaning(df, True, True, True, True, True, True)
+        df_predict = feature_engineering_(df_to_engineer, True, True)
+        print(df_predict.info())
+        predictive_m(df_predict)
+
 
 if __name__ == "__main__":
     print("\n\n\nInstruction received!\n\n\n")
